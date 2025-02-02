@@ -22,18 +22,19 @@ The project only works with NVIDIA GPUs that support CUDA.
 - CUDA version >= 11.6 
 
 **Note**: It is recommended to use a new virtual environment to avoid dependency conflicts. Also, make sure **Python version is 3.10 or higher**.
-### Install PyTorch  
+### 1️⃣ Install PyTorch  
 
 Install the appropriate version of [PyTorch](https://pytorch.org/get-started/locally/) based on your CUDA version.
 
 **Example**: for CUDA >= 12.6 and Windowes OS
 
 `pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126`
-### Install LocalGeoLite
+### 2️⃣ Install LocalGeoLite
 
 `pip install git+https://github.com/Junjie-Mu/LocalGeoLite.git`
 
-For the first time the model and parameters will be downloaded locally, which may take some time. 
+All other dependencies will be downloaded automatically. Once the installation is complete, you’re all set to start using LocalGeoLite.
+
 ## Usage
 
 There are two ways to run LocalGeoLite:
@@ -45,6 +46,8 @@ There are two ways to run LocalGeoLite:
   ```bash
   >>>  localgeo loadmodel
   ```
+For the first time the model and parameters will be downloaded locally, which may take some time. 
+
 `code <prompt>`: Generate GIS-related Python code
   ```bash
   >>> code Read a GeoJSON file into a GeoDataFrame
@@ -81,22 +84,24 @@ unload_model()
 ## Model and Finetune
 I built **LocalGeoLite** using **Qwen2.5-7B** 
 as the base model and curated a fine-tuning dataset 
-with 2000+ high-quality GIS-specific prompt-answer pairs. 
-The fine-tuning process was accelerated using [**Unsloth**](https://unsloth.ai/), 
+with 2000+ high-quality GIS-specific prompt-answer pairs.
+
+The fine-tuning process was accelerated using **Unsloth**, 
 which significantly reduced GPU memory usage while improving both code generation
 and question-answering capabilities for GIS tasks.
 
-The fine-tuned model is hosted on [**Hugging Face**](https://huggingface.co/) 
+The fine-tuned model is hosted on [**Hugging Face**](https://huggingface.co/JackyMu/LocalGeoLite) 
 and efficiently loaded and inferred using **Unsloth**. 
+
 I further optimized the environment setup, model deployment, 
-and interaction logic, packaging everything into a Python library
+and interaction logic, packaging everything into a Python library called **LocalGeoLite**
 for a plug-and-play GIS AI assistant.
 
 For reproducibility and further customization, the fine-tuning dataset
 and training scripts are organized in the folder [Finetune](https://github.com/Junjie-Mu/LocalGeoLite/tree/main/Finetune).
 
-## References 
+## References & Acknowledgments
 
 - [Qwen2.5](https://github.com/QwenLM/Qwen) – LLM and LMM series of the Qwen Team, Alibaba Group.
 - [Unsloth](https://unsloth.ai/) – Makes finetuning LLM faster, use 70% less memory, and with no degradation in accuracy.
-- [Hugging Face](https://huggingface.co/) – Model hosting and deployment platform
+- [Hugging Face](https://huggingface.co/) – Model hosting and deployment platform.
