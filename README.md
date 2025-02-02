@@ -9,7 +9,7 @@
 - 💻 **Command-Line Interface** – Simple and interactive usage  
 - 🔒 **Secure & Private** – No internet connection required, keeping your data safe  
 - 🎯 **Dual Modes** – Supports both code generation and text generation
-- ⚡ Zero Setup – Get started quickly with minimal requirements
+- ⚡ **Zero Setup** – Get started quickly with minimal requirements
 ## Quick start
 ### ⚠️ IMPORTANT
 ```
