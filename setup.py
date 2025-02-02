@@ -10,9 +10,16 @@ setup(
     url="https://github.com/Junjie-Mu/LocalGeoLite",
     packages=find_packages(),
     install_requires=[
-        "numpy",
-        "pandas",
+        "torch",
+        "transformers",
+        "unsloth",
     ],
+    extras_require={
+        'test': [
+            'pytest',
+            'pytest-cov',
+        ],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
