@@ -16,7 +16,7 @@
 This project is for learning purposes and did not tested across multiple devices. 
 ```
 ### 💻 Hardware Requirements
-The project only works with NVIDIA GPUs that support CUDA. 
+The library **only** works with NVIDIA GPUs that support CUDA. 
 - NVIDIA GPU with CUDA support
 - Minimum 6GB GPU VRAM
 - CUDA version >= 11.6 
@@ -81,6 +81,14 @@ text("Descirbe TIN");
 # unload model
 unload_model()
 ```
+## Issues
+### 1. `ERROR: No matching distribution found for triton`
+Solution: `pip install xformers`
+### 2. Missing C Compiler or MSVC
+Some Unsloth dependencies may require C++ compilation. 
+Download and install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/).
+
+
 ## Model and Finetune
 I built **LocalGeoLite** using **Qwen2.5-7B** 
 as the base model and curated a fine-tuning dataset 
