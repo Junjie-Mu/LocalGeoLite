@@ -26,7 +26,7 @@ The library **only** works with NVIDIA GPUs that support CUDA.
 
 Install the appropriate version of [PyTorch](https://pytorch.org/get-started/locally/) based on your CUDA version.
 
-**Example**: for CUDA >= 12.6 and Windowes OS
+**Example**: for CUDA >= 12.6 and Windows OS
 
 `pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126`
 ### 2️⃣ Install LocalGeoLite
