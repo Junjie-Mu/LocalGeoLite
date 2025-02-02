@@ -1,6 +1,6 @@
 # LocalGeoLite
 
-**LocalGeoLite** is a GIS AI assistant powered by a local large language model, designed to generate GIS-related code and answer questions! 
+**LocalGeoLite** is a GIS AI assistant powered by a local large language model, designed to generate GIS-related code and answer GIS-related questions! 
 
 ## Features  
 
@@ -13,7 +13,7 @@
 ## Quick start
 ### ⚠️ IMPORTANT
 ```
-This project is for learning purposes and did not tested across multiple devices. 
+This library is for learning purposes and did not tested across multiple devices. 
 ```
 ### 💻 Hardware Requirements
 The library **only** works with NVIDIA GPUs that support CUDA. 
@@ -76,8 +76,10 @@ Functions:
 ```python
 # Generatea code
 code("Read a GeoJSON file into a GeoDataFrame.");
+
 # Generatea text
 text("Descirbe TIN");
+
 # unload model
 unload_model()
 ```
