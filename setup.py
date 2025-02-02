@@ -26,4 +26,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.8",
+    entry_points={
+        'console_scripts': [
+            'localgeo=LocalGeoLite.cli:main',
+        ],
+    },
 )

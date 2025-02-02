@@ -34,3 +34,4 @@ class text:
             max_new_tokens=max_new_tokens,
         )
         response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        return response

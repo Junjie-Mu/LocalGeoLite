@@ -31,17 +31,15 @@ class ModelManager:
             dtype=None,
             load_in_4bit: bool = True
     ) -> Tuple[PreTrainedModel, PreTrainedTokenizer]:
-        # 如果已有加载的模型实例，直接返回
+        # If there is already a loaded model, return directly
         if cls._model is not None and cls._tokenizer is not None:
             print("✅ Found that the model has aleady been initialized.")
             return cls._model, cls._tokenizer
 
-        # 设置缓存目录
         if cache_dir:
             os.environ["HF_HOME"] = cache_dir
 
         print("🎯 Loading new model instance\n🟠 Downloading takes some time...")
-        # 加载新的模型实例
         cls._model, cls._tokenizer = FastLanguageModel.from_pretrained(
             model_name="JackyMu/LocalGeoLite",
             cache_dir=cache_dir,
@@ -50,7 +48,7 @@ class ModelManager:
             load_in_4bit=load_in_4bit,
         )
 
-        # 启用快速推理
+        # Enable native 2x faster inference
         FastLanguageModel.for_inference(cls._model)
 
         from .code_generator import code
@@ -72,7 +70,6 @@ class ModelManager:
         if cls._model is not None:
             if hasattr(cls._model, 'cpu'):
                 cls._model.cpu()
-            # 删除模型
             del cls._model
             cls._model = None
             
@@ -88,20 +85,15 @@ class ModelManager:
             del cls._text
             cls._text = None
 
-        # 强制进行垃圾回收
         gc.collect()
-        
-        # 清理CUDA缓存
+
+        # Clear CUDA cache
         if torch.cuda.is_available():
-            # 清空CUDA缓存
             torch.cuda.empty_cache()
-            
         print("🗑️ Model unloaded and GPU memory cleared.")
 
 
-# 创建ModelManager实例
 _model_manager = ModelManager()
-
 
 def load_model(
         cache_dir: Optional[str] = None,
@@ -120,15 +112,13 @@ def load_model(
 def unload_model() -> None:
     _model_manager.unload_model()
 
-
-# 全局code和text函数
 def code(prompt: str, max_new_tokens: int = 256) -> str:
     if _model_manager._code is None:
-        raise RuntimeError("Model not loaded. Please call load_model() first.")
+        raise RuntimeError("Model not loaded. Please use load_model() first.")
     return _model_manager._code(prompt, max_new_tokens)
 
 
 def text(prompt: str, max_new_tokens: int = 256) -> str:
     if _model_manager._text is None:
-        raise RuntimeError("Model not loaded. Please call load_model() first.")
+        raise RuntimeError("Model not loaded. Please use load_model() first.")
     return _model_manager._text(prompt, max_new_tokens)

@@ -1,4 +1,4 @@
-from typing import Optional, Callable
+from typing import Optional
 from .load_model import load_model
 from transformers import TextStreamer
 from .format import ALPACA_PROMPT
@@ -28,7 +28,6 @@ class code:
                 )
             ], return_tensors="pt").to("cuda")
 
-
         outputs = self.model.generate(
             **inputs,
             streamer=self.streamer,
@@ -36,4 +35,5 @@ class code:
         )
 
         response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        return response
 
