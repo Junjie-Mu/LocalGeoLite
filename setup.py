@@ -4,7 +4,7 @@ setup(
     name="LocalGeoLite",
     version="1.0.0",
     author="JunjieMu",
-    description="LocalGeoLite is a GIS AI assistant powered by a local large language model, designed to generate GIS-related code and answer questions! ",
+    description="**LocalGeoLite** is a GIS AI assistant powered by a local large language model, designed to generate GIS-related code and answer GIS-related questions! ",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/Junjie-Mu/LocalGeoLite",
