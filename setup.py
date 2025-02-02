@@ -15,7 +15,7 @@ setup(
         "transformers",
         "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git",
         "numpy",
-        "jupyter lab",
+        "IPython"
     ],
     extras_require={
         'test': [
