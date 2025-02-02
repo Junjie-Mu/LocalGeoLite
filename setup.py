@@ -14,6 +14,7 @@ setup(
         #"torch"
         "transformers",
         "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git",
+        "xformers",
         "numpy",
         "IPython"
     ],
