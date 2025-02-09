@@ -12,8 +12,8 @@
 - ⚡ **Zero Setup** – Get started quickly with minimal requirements
 
 ###  Update Notification
-Unsloth updated and uploaded **new versions of Qwen models** with **-unsloth-bnb quantization** on February 5th. 
-When using the `unsloth/qwen2.5` model, you may encounter an error: `not supported in my current Unsloth version.`
+Unsloth updated and uploaded new versions of Qwen models with `-unsloth-bnb` label on February 5th. 
+When using the `unsloth/qwen2.5` model, you may encounter an error: `not supported in current Unsloth version.`
 To resolve this issue, I have uploaded the complete **LocalGeoLite** to Hugging Face. You can simply re-download the model to use it normally.
 
 Additionally, when downloading the model using `FastLanguageModel`, it will **automatically redirect** to the new quantized model: **"unsloth/Qwen2.5-7B-unsloth-bnb-4bit."** This model adopts **Dynamic 4-bit quantization**, 
