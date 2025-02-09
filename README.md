@@ -10,6 +10,17 @@
 - 🔒 **Secure & Private** – No internet connection required, keeping your data safe  
 - 🎯 **Dual Modes** – Supports both code generation and text generation
 - ⚡ **Zero Setup** – Get started quickly with minimal requirements
+
+###  Update Notification
+Unsloth updated and uploaded **new versions of Qwen models** with **-unsloth-bnb quantization** on February 5th. 
+When using the `unsloth/qwen2.5` model, you may encounter an error: `not supported in my current Unsloth version.`
+To resolve this issue, I have uploaded the complete **LocalGeoLite** to Hugging Face. You can simply re-download the model to use it normally.
+
+Additionally, when downloading the model using `FastLanguageModel`, it will **automatically redirect** to the new quantized model: **"unsloth/Qwen2.5-7B-unsloth-bnb-4bit."** This model adopts **Dynamic 4-bit quantization**, 
+which increases the model size and further raises VRAM requirements. 
+
+As a result, the fine-tuning steps in `finetune.ipynb` may no longer be feasible under the previous experimental conditions (6GB VRAM). However, Unsloth may fix the model routing issue in future updates.
+
 ## Quick start
 ### ⚠️ IMPORTANT
 ```
@@ -45,6 +56,7 @@ There are two ways to run LocalGeoLite:
 `localgeo loadmodel [cache_dir]`: The parameter **`cache_dir`** specifies the path to the model cache directory (optional). 
   ```bash
   >>>  localgeo loadmodel
+  >>>  localgeo loadmodel "D:\HuggingFace\Models"
   ```
 For the first time the model and parameters will be downloaded locally, which may take some time. 
 
